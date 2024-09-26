@@ -1,4 +1,4 @@
-# Advertising Platform : Digital Marketing Campaign Analysis using SQL
+# Digital Marketing Platform Campaign Analysis using SQL
 ## Introduction:
 <p>In this digital marketing campaign analysis, I have analyzed data from various campaigns across platforms such as Google Ads and Facebook Ads. The data used in this analysis belongs to an advertising platform and provides insights into the performance of these campaigns.The goal is to derive actionable insights from customer engagement data, including metrics like impressions, clicks, conversions, and ad spend.By leveraging SQL queries, we’ll evaluate campaign effectiveness, customer behavior, and platform performance, helping to optimize marketing strategies. The analysis will focus on key KPIs like cost-per-click (CPC), return on investment (ROI), and customer lifetime value.</p>
 
