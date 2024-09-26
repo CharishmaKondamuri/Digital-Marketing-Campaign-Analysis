@@ -161,7 +161,7 @@ GROUP BY pl.PlatformName
 ORDER BY AvgCPI ASC
 LIMIT 1;
 ```
-#### OUTPUT:
+#### Output:
 
 ![image](https://github.com/user-attachments/assets/779d62d7-4e52-4488-987f-ed98ef887e5d)
 
@@ -177,7 +177,7 @@ GROUP BY c.CampaignName
 ORDER BY TotalImpressions DESC
 LIMIT 1;
 ```
-#### OUTPUT:
+#### Output:
 
 ![image](https://github.com/user-attachments/assets/f3fb52a0-90a0-4801-9600-cba4e6505eaa)
 
