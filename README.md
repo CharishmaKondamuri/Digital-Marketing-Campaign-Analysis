@@ -1,1 +1,1 @@
-# Digital-Marketing-Campaign-Analysis
+# Digital Marketing Campaign Case Study – PostgreSQL
