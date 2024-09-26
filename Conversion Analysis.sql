@@ -130,7 +130,7 @@ ORDER BY TotalConversions DESC
 LIMIT 1;
 
 --4. What is the average cost per click (CPC) for each campaign?
-SELECT c.CampaignName, AVG(pl.CostPerClick) AS AvgCPC
+SELECT c.CampaignName, ROUND(AVG(pl.CostPerClick), 2) AS AvgCPC
 FROM Performance p
 JOIN Campaigns c ON p.CampaignID = c.CampaignID
 JOIN Platforms pl ON p.PlatformID = pl.PlatformID
@@ -154,7 +154,7 @@ ORDER BY TotalSpend DESC;
 
 --7. What is the conversion rate (Conversions/Clicks) for each campaign?
 SELECT c.CampaignName, 
-       SUM(p.Conversions) * 1.0 / SUM(p.Clicks) AS ConversionRate
+       ROUND(SUM(p.Conversions) * 1.0 / SUM(p.Clicks), 2) AS ConversionRate
 FROM Performance p
 JOIN Campaigns c ON p.CampaignID = c.CampaignID
 GROUP BY c.CampaignName;
@@ -167,7 +167,8 @@ GROUP BY cu.FirstName, cu.LastName
 ORDER BY CampaignCount DESC;
 
 --9. Which platform has the lowest cost per impression (CPI) across all campaigns?
-SELECT pl.PlatformName, AVG(pl.CostPerImpression) AS AvgCPI
+SELECT pl.PlatformName, 
+       ROUND(AVG(pl.CostPerImpression), 2) AS AvgCPI
 FROM Platforms pl
 JOIN Performance p ON p.PlatformID = pl.PlatformID
 GROUP BY pl.PlatformName
@@ -182,4 +183,3 @@ WHERE c.Status = 'Active'
 GROUP BY c.CampaignName
 ORDER BY TotalImpressions DESC
 LIMIT 1;
-
