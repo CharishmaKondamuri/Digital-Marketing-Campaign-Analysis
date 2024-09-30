@@ -4,7 +4,7 @@
 
 <img align="centre" alt="coding" width="1100" src="https://img.freepik.com/premium-vector/digital-marketing-hand-holding-megaphone-coming-out-from-computer-business-analysis-content-strategy-management-advertising-social-media-campaign-communication-seo_458444-1333.jpg?w=1380">
 
-## Entity Relationship Diagram:
+## Database Schema:
 
 <img align="centre" alt="coding" width="800" src="https://github.com/CharishmaKondamuri/Digital-Marketing-Campaign-Analysis/blob/main/ERD.png"> 
 
@@ -73,8 +73,8 @@
 | 9             | 9          | 9          | 9          | 6000        | 90     | 15          | 400   | 2024-03-20   |
 | 10            | 10         | 10         | 10         | 7000        | 100    | 20          | 450   | 2024-02-10   |
 
-## Case Study Questions:
-#### 1.Which campaign has the highest spend?
+## Key SQL Analysis:
+#### 1.Campaign incurring the highest total spend
 #### Query:
 
 ```sql
@@ -90,7 +90,7 @@ LIMIT 1;
 |--------------------|------------|
 | Cyber Monday 2023   | 1200       |
 
-#### 2. What is the total number of impressions, clicks, and conversions for each platform?
+#### 2. Total Impressions, Clicks, and Conversions by Platform
 #### Query:
 
 ```sql
@@ -116,7 +116,7 @@ GROUP BY pl.PlatformName;
 | Facebook Ads  | 12000            | 180         | 30               |
 | Snapchat Ads  | 13000            | 190         | 45               |
 
-#### 3. Which customer has the highest number of conversions across all campaigns?
+#### 3. Customer with the Most Conversions
 #### Query:
 
 ```sql
@@ -132,7 +132,7 @@ LIMIT 1;
 |-----------|----------|------------------|
 | Oliver    | Wilson   | 50               |
 
-#### 4. What is the average cost per click (CPC) for each campaign?
+#### 4. Average Cost Per Click (CPC) for Each Campaign
 #### Query:
 
 ```sql
@@ -156,7 +156,7 @@ GROUP BY c.CampaignName;
 | Easter 2024           | 1      |
 | Summer Sale 2024      | 1.5    |
 
-#### 5. Which platform generated the most clicks for a given campaign (e.g., 'Summer Sale 2024')?
+#### 5. Most Effective Platform for the 'Summer Sale 2024' Campaign
 #### Query:
 
 ```sql
@@ -173,7 +173,7 @@ ORDER BY TotalClicks DESC;
 |--------------|-------------|
 | Google Ads   | 150         |
 
-#### 6. How much has been spent per platform across all campaigns?
+#### 6. Total Spend Per Platform Across All Campaigns
 #### Query:</h4>
 
 ```sql
@@ -197,7 +197,7 @@ ORDER BY TotalSpend DESC;
 | Pinterest Ads | 400        |
 | Instagram Ads | 300        |
 
-#### 7. What is the conversion rate (Conversions/Clicks) for each campaign?
+#### 7. Conversion Rate for Each Campaign
 #### Query:
 
 ```sql
@@ -221,7 +221,7 @@ GROUP BY c.CampaignName;
 | Easter 2024           | 0.17           |
 | Summer Sale 2024      | 0.13           |
 
-#### 8. Which customers engaged with the most campaigns?
+#### 8. Customers Engaging with the Most Campaigns
 #### Query:
 
 ```sql
@@ -245,7 +245,7 @@ ORDER BY CampaignCount DESC;
 | Oliver    | Wilson   | 1             |
 | Sophia    | Taylor   | 1             |
 
-#### 9. Which platform has the lowest cost per impression (CPI) across all campaigns?
+#### 9. Platform with the Lowest Cost Per Impression (CPI)
 #### Query:
 
 ```sql
@@ -262,7 +262,7 @@ LIMIT 1;
 |--------------|--------|
 | Reddit Ads   | 0.02   |
 
-#### 10. Which campaign is currently active and has the highest total impressions?
+#### 10. Active Campaign with the Most Impressions
 #### Query:
 
 ```sql
