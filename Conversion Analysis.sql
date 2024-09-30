@@ -104,7 +104,7 @@ SELECT * FROM Customers;
 
 SELECT * FROM Performance;
 
---1. Which campaign has the highest spend?
+--1. Campaign incurring the highest total spend
 SELECT c.CampaignName, SUM(p.Spend) AS TotalSpend
 FROM Performance p
 JOIN Campaigns c ON p.CampaignID = c.CampaignID
@@ -112,7 +112,7 @@ GROUP BY c.CampaignName
 ORDER BY TotalSpend DESC
 LIMIT 1;
 
---2. What is the total number of impressions, clicks, and conversions for each platform?
+--2. Total Impressions, Clicks, and Conversions by Platform
 SELECT pl.PlatformName, 
        SUM(p.Impressions) AS TotalImpressions, 
        SUM(p.Clicks) AS TotalClicks, 
@@ -121,7 +121,7 @@ FROM Performance p
 JOIN Platforms pl ON p.PlatformID = pl.PlatformID
 GROUP BY pl.PlatformName;
 
---3. Which customer has the highest number of conversions across all campaigns?
+--3. Customer with the Most Conversions
 SELECT cu.FirstName, cu.LastName, SUM(p.Conversions) AS TotalConversions
 FROM Performance p
 JOIN Customers cu ON p.CustomerID = cu.CustomerID
@@ -129,14 +129,14 @@ GROUP BY cu.FirstName, cu.LastName
 ORDER BY TotalConversions DESC
 LIMIT 1;
 
---4. What is the average cost per click (CPC) for each campaign?
+--4. Average Cost Per Click (CPC) for Each Campaign
 SELECT c.CampaignName, ROUND(AVG(pl.CostPerClick), 2) AS AvgCPC
 FROM Performance p
 JOIN Campaigns c ON p.CampaignID = c.CampaignID
 JOIN Platforms pl ON p.PlatformID = pl.PlatformID
 GROUP BY c.CampaignName;
 
---5. Which platform generated the most clicks for a given campaign (e.g., 'Summer Sale 2024')?
+--5. Most Effective Platform for the 'Summer Sale 2024' Campaign
 SELECT pl.PlatformName, SUM(p.Clicks) AS TotalClicks
 FROM Performance p
 JOIN Platforms pl ON p.PlatformID = pl.PlatformID
@@ -145,28 +145,28 @@ WHERE c.CampaignName = 'Summer Sale 2024'
 GROUP BY pl.PlatformName
 ORDER BY TotalClicks DESC;
 
---6. How much has been spent per platform across all campaigns?
+--6. Total Spend Per Platform Across All Campaigns
 SELECT pl.PlatformName, SUM(p.Spend) AS TotalSpend
 FROM Performance p
 JOIN Platforms pl ON p.PlatformID = pl.PlatformID
 GROUP BY pl.PlatformName
 ORDER BY TotalSpend DESC;
 
---7. What is the conversion rate (Conversions/Clicks) for each campaign?
+--7. Conversion Rate for Each Campaign
 SELECT c.CampaignName, 
        ROUND(SUM(p.Conversions) * 1.0 / SUM(p.Clicks), 2) AS ConversionRate
 FROM Performance p
 JOIN Campaigns c ON p.CampaignID = c.CampaignID
 GROUP BY c.CampaignName;
 
---8. Which customers engaged with the most campaigns?
+--8. Customers Engaging with the Most Campaigns
 SELECT cu.FirstName, cu.LastName, COUNT(DISTINCT p.CampaignID) AS CampaignCount
 FROM Performance p
 JOIN Customers cu ON p.CustomerID = cu.CustomerID
 GROUP BY cu.FirstName, cu.LastName
 ORDER BY CampaignCount DESC;
 
---9. Which platform has the lowest cost per impression (CPI) across all campaigns?
+--9. Platform with the Lowest Cost Per Impression (CPI)
 SELECT pl.PlatformName, 
        ROUND(AVG(pl.CostPerImpression), 2) AS AvgCPI
 FROM Platforms pl
@@ -175,7 +175,7 @@ GROUP BY pl.PlatformName
 ORDER BY AvgCPI ASC
 LIMIT 1;
 
---10. Which campaign is currently active and has the highest total impressions?
+--10. Active Campaign with the Most Impressions
 SELECT c.CampaignName, SUM(p.Impressions) AS TotalImpressions
 FROM Performance p
 JOIN Campaigns c ON p.CampaignID = c.CampaignID
@@ -183,3 +183,4 @@ WHERE c.Status = 'Active'
 GROUP BY c.CampaignName
 ORDER BY TotalImpressions DESC
 LIMIT 1;
+
